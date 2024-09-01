@@ -1,38 +1,212 @@
-.App {
-  text-align: center;
+@font-face {
+    font-family: 'Paperlogy-8ExtraBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* {margin: 0;padding: 0;box-sizing: border-box; }  
+body{
+    font-size: 18px;    
+    font-family: 'Paperlogy-8ExtraBold';
+}
+button{
+    cursor: pointer;
+    transition: .2s;
+    font-family: 'S-CoreDream-3Light';
+}
+.wrap{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background: #48a7f3;
+}
+.container{
+    width: 80%;
+    max-width: 900px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    overflow: hidden;
+}
+.flex{
+    display: flex;
+    justify-content: center;
+}
+.game__score{
+    width: 98%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    border-bottom: 2px dashed #fff;
+    padding: 20px 0;
+}
+.game__score .score{
+    padding: 0 20px;
+    vertical-align: middle;    
+    background: none;    
+    font-weight: bold;
+    font-size: 2.5rem;
+    color: #fff;
+}
+.game__score button{
+    vertical-align: middle;
+    border: none;
+    padding:7px 20px;
+    font-size: 0.8rem;
+    border-radius: 30px;
+    background: none;
+    border: 2px solid #fff;
+    color: #fff;
+}
+.game__score button:hover{   
+    background: #ff9002;
+    border: 2px solid #ff9002;
+}
+.game__box{     
+    border-radius: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    background: #fff;
+    flex-basis: 49%;
+    margin: 0 0.5%;
+    overflow: hidden;
+    padding: 30px 0;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;    
+}
+.game__box h1{    
+    border-radius: 50px;
+    padding: 10px 0;
+    width: 75%;
+    margin: 0 auto;
+    display: block;
+    background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+    color: #fff;
+    font-size: 2rem;
+    text-align: center;
+    letter-spacing: 1px;
+}
+.game__item{    
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.item__img{
+    width: 50%;    
+}
+@keyframes swing {
+    20% {
+        -webkit-transform: rotate(15deg);
+        transform: rotate(15deg)
+    }
+
+    40% {
+        -webkit-transform: rotate(-10deg);
+        transform: rotate(-10deg)
+    }
+
+    60% {
+        -webkit-transform: rotate(5deg);
+        transform: rotate(5deg)
+    }
+
+    80% {
+        -webkit-transform: rotate(-5deg);
+        transform: rotate(-5deg)
+    }
+
+    to {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+}
+.game__result{
+    height: 80px;
+    line-height: 80px;
+    font-size: 3vw;
+    font-weight: bold;
+}
+.game__result.win{
+    color:#ff4000
+}
+.game__result.lose{
+    color:#0697ff
+}
+.game__btn{    
+    width: 100%;
+    padding: 20px;
+}
+.game__btn button{    
+    vertical-align: middle;
+    border:none;   
+    height: 50px;
+    padding: 0 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    background: #fff;
+    margin: 30px 1%;
+    border-radius: 5px;
+}
+.game__btn button:hover{
+    background: #ffab4d;
+    color: #fff;
+}
+footer{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    color:rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+    font-family: 'S-CoreDream-3Light';
+    letter-spacing: 1px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media only screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+        margin: 0 auto;
+        position: static;
+        transform: translate(0%, 0%);
+    }
+    .box {
+      width: 90%;
+      height: calc(100vh - 8rem)
+    }
+    .game__box h1{
+        font-size: 3vw;
+    }
+    .item {
+        height: 20vh;
+    }
+    .game__result {
+        height: 40px;
+        line-height: 40px;
+        font-size: 5vw;
+    }
+    .game__btn {
+        width: 100%;
+        padding: 0;
+    }
+    .game__btn button {        
+        height: 35px;
+        font-size: 14px;
+    }
+    footer {
+        position: static;
+        font-size: 0.8rem;       
+    }
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
